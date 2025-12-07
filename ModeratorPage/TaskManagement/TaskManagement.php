@@ -1,9 +1,11 @@
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/RWD_Assignment/FocusFlow/ModeratorPage/checklogin.php"; ?>
+<?php 
+@include_once("../../config.php");
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/ModeratorPage/checklogin.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php"; ?>
 
 <head>
     <meta charset="UTF-8">

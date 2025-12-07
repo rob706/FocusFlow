@@ -1,7 +1,10 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+
+@include_once("../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/AccountVerify.php";
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/AccountVerify.php";
 
 // Add check to prevent redirect loop - only redirect if not already on admin dashboard
 if (isset($_COOKIE['UID']) && isset($_COOKIE['USERNAME']) && isset($_COOKIE['USERTYPE']) && 
@@ -16,15 +19,14 @@ if (isset($_COOKIE['UID']) && isset($_COOKIE['USERNAME']) && isset($_COOKIE['USE
     $_SESSION['username'] = $username;
 
     // Determine redirect page based on user type
-    switch ($usertype) {
         case 0:
-            $redirectPage = '/RWD_Assignment/FocusFlow/RegisterLayout/Homepage.php';
+            $redirectPage = $webroot."/RegisterLayout/Homepage.php";
             break;
         case 1:
-            $redirectPage = '/RWD_Assignment/FocusFlow/AdminPage/AdminDashboard/AdminDashboard.php';
+            $redirectPage = $webroot."/AdminPage/AdminDashboard/AdminDashboard.php";
             break;
         case 2:
-            $redirectPage = '/RWD_Assignment/FocusFlow/ModeratorPage/Dashboard/ModDashboard.php';
+            $redirectPage = $webroot."/ModeratorPage/Dashboard/ModDashboard.php";
             break;
     }
 

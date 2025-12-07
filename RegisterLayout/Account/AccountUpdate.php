@@ -1,5 +1,8 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+
+@include_once("../../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_COOKIE['UID'])) {
@@ -31,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newEmail = !empty(trim($_POST['email'])) ? mysqli_real_escape_string($_conn, trim($_POST['email'])) : $userData['email'];
         }else{
             echo "Email address cannot be same as previous.";
-            echo "<script>setTimeout(function() { window.location.href='/RWD_assignment/FocusFlow/RegisterLayout/Account.php'; }, 3000);</script>";
+            echo "<script>setTimeout(function() { window.location.href='<?php echo $webroot; ?>/RegisterLayout/Account.php'; }, 3000);</script>";
         }
         // $newEmail = !empty(trim($_POST['email'])) ? mysqli_real_escape_string($_conn, trim($_POST['email'])) : $userData['email'];
         $newPassword = !empty(trim($_POST['password'])) ? mysqli_real_escape_string($_conn, trim($_POST['password'])) : $currentPassword; // Use DB password if no new password is provided
@@ -56,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Now it's safe to output
         echo "Profile updated successfully. Refreshing...";
-        echo "<script>window.location.href='/RWD_assignment/FocusFlow/RegisterLayout/Account.php';</script>";
+        echo "<script>window.location.href='<?php echo $webroot; ?>/RegisterLayout/Account.php';</script>";
 
         exit();
     } else {

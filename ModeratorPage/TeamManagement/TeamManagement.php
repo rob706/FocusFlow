@@ -1,4 +1,8 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/RWD_Assignment/FocusFlow/ModeratorPage/checklogin.php"; ?>
+<?php 
+
+@include_once("../../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/ModeratorPage/checklogin.php"; ?>
 
 
 <!DOCTYPE html>

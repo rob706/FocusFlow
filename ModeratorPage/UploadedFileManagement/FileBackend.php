@@ -1,5 +1,8 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+
+@include_once("../../config.php");
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 header('Content-Type: application/json');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

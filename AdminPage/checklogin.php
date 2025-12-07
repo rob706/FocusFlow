@@ -1,5 +1,7 @@
 <?php
 
+@include_once("../../config.php");
+
 if (!isset($_COOKIE['UID'])) {
     $cookiesToClear = ['AUTH_TOKEN', 'EMAIL', 'PHPSESSID', 'UID', 'USERNAME', 'USERTYPE'];
     
@@ -10,12 +12,12 @@ if (!isset($_COOKIE['UID'])) {
     
     session_unset();
     session_destroy();
-    header("Location: /RWD_Assignment/FocusFlow/RegisterLayout/Login.php");
+    header("Location: ".$webroot."/RegisterLayout/Login.php");
     exit();
 }
 
 if (!($_COOKIE['USERTYPE'] == 1)) {
-    header("Location: /RWD_Assignment/FocusFlow/RegisterLayout/Login.php");
+    header("Location: ".$webroot."/RegisterLayout/Login.php");
     exit();
 }
 

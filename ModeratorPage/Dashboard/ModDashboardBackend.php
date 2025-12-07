@@ -1,6 +1,8 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+@include_once("../../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 // Get total normal users
 
 $sql_users = "SELECT COUNT(*) AS total_users FROM users WHERE usertype = 0";

@@ -3,7 +3,10 @@ session_start();
 
 include "conn.php";
 include "GeneralFunction.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_Assignment/FocusFlow/RegisterLayout/checklogin.php";
+
+@include_once("../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/checklogin.php";
 
 
 if (!isset($_COOKIE['UID']) || !isset($_COOKIE['USERNAME']) || !isset($_COOKIE['USERTYPE'])) {
@@ -1115,7 +1118,7 @@ while ($row = $result->fetch_assoc()) {
 
                     // Add to pages where users are active
                     function updateUserActivity() {
-                        fetch('/RWD_assignment/FocusFlow/AdminPage/AdminDashboard/get_user_statuses.php')
+                        fetch('<?php echo $webroot; ?>/AdminPage/AdminDashboard/get_user_statuses.php')
                             .then(response => response.json())
                             .catch(error => console.error('Error updating activity:', error));
                     }

@@ -130,7 +130,7 @@ function submitGroupForm() {
     }
 
     // Create group in the database
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -255,7 +255,7 @@ async function deleteGroup(groupName) {
     groupCard.style.opacity = '0.5';
 
     // Send delete request to server
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -466,7 +466,7 @@ function submitTaskForm() {
     }
 
     // Create task in the database
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -870,7 +870,7 @@ function displayTaskDetails(taskData) {
 
 // Function to update a task's description
 function updateTaskDescription(taskId, newDescription) {
-    return fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    return fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -935,7 +935,7 @@ function toggleTaskStatus(button, task, taskData) {
     button.textContent = '...';
 
     // Send status update to server
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -1114,7 +1114,7 @@ function loadGroupAndTaskByDefault() {
     }
     
     // Fetch groups and tasks from server - FIX THE PATH HERE
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -1317,7 +1317,7 @@ function handleDrop(e) {
     }
 
     // Update in database
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -1456,7 +1456,7 @@ function updateTaskCountdown(timerElement) {
             const statusButton = task.querySelector('.status-toggle');
 
             if (taskId) {
-                fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+                fetch('./Todo/TodoBackend.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1531,7 +1531,7 @@ function deleteTask(taskElement) {
     }
 
     // Send delete request
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('./Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

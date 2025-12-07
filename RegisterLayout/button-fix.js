@@ -207,7 +207,7 @@ function submitGroupForm() {
     }
     
     // Use absolute path to ensure the backend file is found
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -288,7 +288,7 @@ function submitTaskForm() {
     }
     
     // Create task in the database
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Todo/TodoBackend.php', {
+    fetch('Todo/TodoBackend.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

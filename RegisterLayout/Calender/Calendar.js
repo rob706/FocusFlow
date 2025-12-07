@@ -17,7 +17,7 @@ function toggleDropdown(button) {
 }
 
 function updateUserTaskStatus(taskID, newStatus) {
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/CalendarBackend.php', {
+    fetch('./CalendarBackend.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: `action=Update&task_id=${taskID}&status=${newStatus}`
@@ -34,7 +34,7 @@ function updateUserTaskStatus(taskID, newStatus) {
 
 // change status if task is later then current date
 function checkOverdueTasks() {
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/CalendarBackend.php', {
+    fetch('./CalendarBackend.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -475,7 +475,7 @@ close
 
 function sendData(taskId) {
     console.log(taskId)
-    fetch("/RWD_assignment/FocusFlow/RegisterLayout/CalendarBackend.php", {
+    fetch("./CalendarBackend.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -676,7 +676,7 @@ function InvalidInput(INPUT, PLACEHOLDER) {
 
 
 // // Pop up category select
-fetch("/RWD_assignment/FocusFlow/RegisterLayout/CalendarBackend.php", {
+fetch("./CalendarBackend.php", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({ action: "Category" })
@@ -809,7 +809,7 @@ document.getElementById("submitButton").addEventListener("click", function () {
         formData.append("start_time", startTime);
         formData.append("end_time", endTime);
 
-        fetch("/RWD_assignment/FocusFlow/RegisterLayout/CalendarBackend.php", {
+        fetch("./CalendarBackend.php", {
             method: "POST",
             body: formData
         })

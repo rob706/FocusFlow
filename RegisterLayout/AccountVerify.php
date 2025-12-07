@@ -1,4 +1,7 @@
 <?php
+
+@include_once("../config.php");
+
 include_once "conn.php"; // Use include_once to prevent duplicate inclusions
 
 /**
@@ -193,7 +196,7 @@ function checkSuspension($_conn, $userID)
         if ($suspension_end > time()) {
             $_SESSION['suspended'] = true;
             $_SESSION['suspension_end'] = $suspension_end;
-            header("Location: /RWD_assignment/FocusFlow/AdminPage/AdminDashboard/suspensionpage.php");
+            header("Location: ".$webroot."/AdminPage/AdminDashboard/suspensionpage.php");
             exit();
         }
     }
@@ -251,7 +254,7 @@ function logoutUser()
     setcookie("USERTYPE", "", time() - 3600, '/');
 
     // Redirect to homepage
-    header("Location: /RWD_assignment/FocusFlow/Landing_Page/Homepage.php");
+    header("Location: ".$webroot."/Landing_Page/Homepage.php");
     exit();
 }
 

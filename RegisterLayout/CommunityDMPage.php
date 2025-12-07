@@ -2,8 +2,10 @@
 
 session_start();
 
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/AccountVerify.php";
+@include_once("../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/AccountVerify.php";
 requireAuthentication($_conn);
 
 $result = $_conn->query("SELECT * FROM message ORDER BY sent_at ASC");
@@ -163,7 +165,7 @@ echo "</script>";
 
                 <section class="DMPAGE__MESSAGE">
 
-                    <form action="/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityDMPageSendMsg.php" method="POST" class="MESSAGE__BOX" id="chatForm">
+                    <form action="<?php echo $webroot; ?>/RegisterLayout/Communication/Community/CommunityDMPageSendMsg.php" method="POST" class="MESSAGE__BOX" id="chatForm">
                         <!-- change this dynamically -->
                         <input type="hidden" name="receiver_id" value=<?php echo $receiverID; ?>>
                         <input class="ENTER__MESSAGE" type="text" name="message" id="message1" placeholder="Type something...">

@@ -1,5 +1,8 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+
+@include_once("../../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $action = isset($_POST['action']) ? $_POST['action'] : '';
@@ -104,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if ($stmt->execute()) {
                 echo "<script>
                     alert('Goal added successfully!');
-                    window.location.href='/RWD_assignment/FocusFlow/RegisterLayout/Goal.php'; // Closes popup after success
+                    window.location.href='<?php echo $webroot; ?>/RegisterLayout/Goal.php'; // Closes popup after success
                   </script>";
             } else {
                 echo "Error: " . $_conn->error;
@@ -140,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $_conn->close();
                 
                 // ✅ Redirect to clear $_POST data
-                echo "<script>window.location.href='/RWD_Assignment/FocusFlow/RegisterLayout/Goal.php'</script>";
+                echo "<script>window.location.href='<?php echo $webroot; ?>/RegisterLayout/Goal.php'</script>";
             } else {
                 $_SESSION['message'] = "Error: Missing goal_id!";
             }

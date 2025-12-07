@@ -4,7 +4,7 @@ function openPopup() {
     const teamName = new URLSearchParams(window.location.search).get("team");
 
     // Open the upload page with team_id passed in URL
-    document.getElementById("popupIframe").src = "/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityPageUpload?team_id=" + encodeURIComponent(teamID) + "&team=" + encodeURIComponent(teamName);
+    document.getElementById("popupIframe").src = "./Communication/Community/CommunityPageUpload?team_id=" + encodeURIComponent(teamID) + "&team=" + encodeURIComponent(teamName);
     document.getElementById("popupOverlay").style.opacity = "1";
     document.getElementById("popupOverlay").style.zIndex = "1000";
 }
@@ -20,7 +20,7 @@ function openPopup1() {
     const teamName = new URLSearchParams(window.location.search).get("team");
 
     // Open the upload page with team_id passed in URL
-    document.getElementById("popupIframe").src = "/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityPageView?team_id=" + encodeURIComponent(teamID) + "&team=" + encodeURIComponent(teamName);
+    document.getElementById("popupIframe").src = "./Communication/Community/CommunityPageView?team_id=" + encodeURIComponent(teamID) + "&team=" + encodeURIComponent(teamName);
     document.getElementById("popupOverlay").style.opacity = "1";
     document.getElementById("popupOverlay").style.zIndex = "1000";
 }
@@ -33,7 +33,7 @@ function getQueryParam(param) {
 
 
 function checkMemberExists(memberName, callback) {
-    fetch("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityBackend.php", {
+    fetch("./Communication/Community/CommunityBackend.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `action=CheckMember&member_name=${encodeURIComponent(memberName)}`
@@ -59,7 +59,7 @@ function addMember() {
         }
 
         // Proceed with adding the member
-        fetch("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityBackend.php", {
+        fetch("./Communication/Community/CommunityBackend.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: `action=AddMember&team_name=${encodeURIComponent(teamName)}&member_name=${memberName}`
@@ -79,7 +79,7 @@ function removeMember() {
     let teamName = getQueryParam("team");
 
     if (teamName && memberName) {
-        fetch("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityBackend.php", {
+        fetch("./Communication/Community/CommunityBackend.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: `action=RemoveMember&team_name=${teamName}&member_name=${memberName}`
@@ -101,7 +101,7 @@ function toggleDropdown(button) {
 }
 
 function updateStatus(taskID, newStatus) {
-    fetch('/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityBackend.php', {
+    fetch('./Communication/Community/CommunityBackend.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: `action=UpdateTask&task_id=${taskID}&status=${newStatus}`
@@ -207,7 +207,7 @@ function InvalidInput(INPUT, PLACEHOLDER) {
 
 // populate combo box for select member/ leader
 let teamName = getQueryParam("team");
-fetch(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityFetchTeamMembers.php?team=${encodeURIComponent(teamName)}`) // Fetch members from PHP
+fetch(`./Communication/Community/CommunityFetchTeamMembers.php?team=${encodeURIComponent(teamName)}`) // Fetch members from PHP
     .then(response => response.json())
     .then(data => {
         let dropdown = document.getElementById("assigned_to");
@@ -228,7 +228,7 @@ document.getElementById("taskPopUpForm").addEventListener("submit", function (ev
 
     let formData = new FormData(this);
 
-    fetch(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityBackend.php?team=${encodeURIComponent(teamName)}`, {
+    fetch(`./Communication/Community/CommunityBackend.php?team=${encodeURIComponent(teamName)}`, {
         method: "POST",
         body: formData,
     })
@@ -279,7 +279,7 @@ if (taskList) {
             const taskId = taskElement.dataset.taskId;
 
 
-            fetch("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityBackend.php", {
+            fetch("./Communication/Community/CommunityBackend.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: `action=DeleteTask&task_id=${taskId}`
@@ -317,7 +317,7 @@ if (deleteButton) {
 
                     if (teamName) {
                         // Send delete request to PHP
-                        fetch("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityBackend.php", {
+                        fetch("./Communication/Community/CommunityBackend.php", {
                             method: "POST",
                             headers: {
                                 'Content-Type': 'application/x-www-form-urlencoded',

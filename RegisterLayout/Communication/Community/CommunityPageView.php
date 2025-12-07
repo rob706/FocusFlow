@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<?php
+    @include_once("../../config.php");
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/RWD_assignment/FocusFlow/RegisterLayout/Registered.css">
-    <link rel="stylesheet" href="/RWD_assignment/FocusFlow/RegisterLayout/Responsive.css">
+    <link rel="stylesheet" href="<?php echo $webroot; ?>/RegisterLayout/Registered.css">
+    <link rel="stylesheet" href="<?php echo $webroot; ?>/RegisterLayout/Responsive.css">
     <title>Team Files</title>
 </head>
 
@@ -15,7 +17,7 @@
 
     <?php
     // Database connection
-    include_once $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+    include_once $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 
     if ($_conn->connect_error) {
         die("Connection failed: " . $_conn->connect_error);

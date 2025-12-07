@@ -1,6 +1,9 @@
 <?php
 // Database connection
-include_once $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+
+@include_once("../../config.php");
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 
 if (isset($_GET['id'])) {
     $fileId = intval($_GET['id']);
