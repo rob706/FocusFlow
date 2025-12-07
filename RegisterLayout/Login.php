@@ -19,6 +19,7 @@ if (isset($_COOKIE['UID']) && isset($_COOKIE['USERNAME']) && isset($_COOKIE['USE
     $_SESSION['username'] = $username;
 
     // Determine redirect page based on user type
+    switch ($usertype) {
         case 0:
             $redirectPage = $webroot."/RegisterLayout/Homepage.php";
             break;
