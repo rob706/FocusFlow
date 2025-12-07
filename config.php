@@ -3,7 +3,7 @@
 // File Structure Settings
 
 $basedir = __DIR__ . '/';
-$webroot = "";
+$webroot = ""; # No Trailing Slash
 
 /*
 
