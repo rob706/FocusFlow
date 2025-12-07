@@ -1,7 +1,8 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/AccountVerify.php";
+@include_once("../../config.php");
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/AccountVerify.php";
 
 // Log the admin logout activity
 if (isset($_SESSION['userID'])) {
@@ -20,6 +21,6 @@ setcookie("USERNAME", "", time() - 3600, '/');
 setcookie("USERTYPE", "", time() - 3600, '/');
 
 // Redirect to login page
-header("Location: /RWD_assignment/FocusFlow/RegisterLayout/Login.php");
+header("Location: ".$webroot."/RegisterLayout/Login.php");
 exit();
 ?>

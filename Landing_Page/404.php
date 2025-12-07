@@ -1,4 +1,7 @@
 <!-- 404 Error Page -->
+<?php
+    @include_once("../config.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +12,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" href="img/SMALL_CLOCK_ICON.ico">
-    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="<?php echo $webroot;?>/landing_page/img/SMALL_CLOCK_ICON.ico">
+    <link rel="stylesheet" href="<?php echo $webroot;?>/landing_page/index.css">
     <style>
         /* Center the main content vertically and horizontally */
         main {
@@ -48,10 +51,10 @@
                         </span>
                     </li>
                     <div class="HEADER__DROPDOWN" id="FEATURES">
-                        <a class="DROPDOWN__ITEM" href="Features.php#pomodoro">Pomodoro Timer</a>
-                        <a class="DROPDOWN__ITEM" href="Features.php#task">Task Management</a>
-                        <a class="DROPDOWN__ITEM" href="Features.php#collaboration">Team Features</a>
-                        <a class="DROPDOWN__ITEM" href="Features.php#analytic">Analytics</a>
+                        <a class="DROPDOWN__ITEM" href="<?php echo $webroot;?>/landing_page/Features.php#pomodoro">Pomodoro Timer</a>
+                        <a class="DROPDOWN__ITEM" href="<?php echo $webroot;?>/landing_page/Features.php#task">Task Management</a>
+                        <a class="DROPDOWN__ITEM" href="<?php echo $webroot;?>/landing_page/Features.php#collaboration">Team Features</a>
+                        <a class="DROPDOWN__ITEM" href="<?php echo $webroot;?>/landing_page/Features.php#analytic">Analytics</a>
                     </div>
 
                     <li class="HEADER__DROPDOWN_MENU CLICKABLE" id="PLAN">
@@ -61,7 +64,7 @@
                         </span>
                     </li>
                     <div class="HEADER__DROPDOWN" id="PLAN">
-                        <a class="DROPDOWN__ITEM" href="Plans.php">View Plan</a>
+                        <a class="DROPDOWN__ITEM" href="<?php echo $webroot;?>/landing_page/Plans.php">View Plan</a>
                     </div>
 
                     <li class="HEADER__DROPDOWN_MENU CLICKABLE" id="CONTACT">
@@ -78,8 +81,13 @@
                 </ul>
             </nav>
         </div>
-        <div class="HEADER__SIGNUP CTA">
-            SIGN UP
+        <div class="CTA__GROUP SB">
+            <div class="HEADER__LOGIN CTA">
+                <a href="<?php echo $webroot;?>/RegisterLayout/Login.php">LOGIN</a>
+            </div>
+            <div class="HEADER__SIGNUP CTA">
+                <a href="<?php echo $webroot;?>/RegisterLayout/Signup.php">SIGN UP</a>
+            </div>
         </div>
     </header>
 
@@ -87,7 +95,7 @@
         <section class="error-page">
             <h2>404 - Page Not Found</h2>
             <p>Sorry, the page you are looking for doesn't exist.</p>
-            <p><a href="Homepage.php">Return to Homepage</a></p>
+            <p><a href="<?php echo $webroot;?>/landing_page/Homepage.php">Return to Homepage</a></p>
         </section>
     </main>
 
@@ -100,7 +108,7 @@
         <div class="FOOTER__LINK">
             <h4 class="FOOTER__LINK__TITLE">Contact</h4>
             <ul>
-                <li><a href="Homepage.php#benefit">Our Service</a></li>
+                <li><a href="<?php echo $webroot;?>/landing_page/Homepage.php#benefit">Our Service</a></li>
                 <li><a href="">Get Help</a></li>
             </ul>
         </div>
@@ -123,7 +131,7 @@
         </a>
     </div>
 
-    <script src="index.js"></script>
+    <script src="<?php echo $webroot;?>/landing_page/index.js"></script>
 
 </body>
 

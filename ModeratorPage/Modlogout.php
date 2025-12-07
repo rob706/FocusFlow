@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+@include_once("../RegisterLayout/conn.php");
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -39,7 +39,6 @@ function logoutUser2()
     }
 
     // Log logout activity
-    include "conn.php";
     if (isset($_COOKIE['UID'])) {
         logLogout($_conn, $_COOKIE['UID'], true);
     }

@@ -185,7 +185,7 @@ function manageGroup(groupName, groupId) {
     document.body.appendChild(overlay);
 
     // Get group status
-    fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupInfo&GroupID=${groupId}`, {
+    fetchDataOrsendData(`./Communication/Message.php?Type=GetGroupInfo&GroupID=${groupId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -307,7 +307,7 @@ function viewGroupMembers(groupName, groupId) {
     document.body.appendChild(overlay);
     
     // Fetch group members from server
-    fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupMembers&GroupID=${groupId}`, {
+    fetchDataOrsendData(`./Communication/Message.php?Type=GetGroupMembers&GroupID=${groupId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -573,7 +573,7 @@ async function changeUserRole(groupId, userId, newRole) {
         return;
     }
     
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+    fetchDataOrsendData("./Communication/Message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -620,7 +620,7 @@ async function removeGroupMember(groupId, userId, userName) {
         memberItem.style.opacity = '0.5';
     }
     
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+    fetchDataOrsendData("./Communication/Message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -768,7 +768,7 @@ function setupEmailSuggestions(inputField, suggestionsList) {
             return;
         }
 
-        fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetSuggestions&Email=${email}`, {
+        fetchDataOrsendData(`./Communication/Message.php?Type=GetSuggestions&Email=${email}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -804,7 +804,7 @@ function setupEmailSuggestions(inputField, suggestionsList) {
  * @param {Array} emails - Array of email addresses to add
  */
 function addMembersToGroup(groupId, emails) {
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+    fetchDataOrsendData("./Communication/Message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -873,7 +873,7 @@ function editGroupInfo(groupName, groupId) {
     errorMessage.style.display = 'none';
     
     // Get current group info
-    fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupInfo&GroupID=${groupId}`, {
+    fetchDataOrsendData(`./Communication/Message.php?Type=GetGroupInfo&GroupID=${groupId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -990,7 +990,7 @@ function editGroupInfo(groupName, groupId) {
  */
 function updateGroupInfoWithCallback(groupId, name, description, onSuccess, onError) {
     console.log(description);
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+    fetchDataOrsendData("./Communication/Message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1068,7 +1068,7 @@ async function deleteGroup(groupName, groupId) {
         return;
     }
     
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+    fetchDataOrsendData("./Communication/Message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1142,7 +1142,7 @@ export async function toggleMuteMember(groupId, memberId, memberName, currentSta
     const confirmed = await RemindLibrary.customConfirm(`Are you sure you want to ${action} ${memberName}?`);
     
     if (confirmed) {
-        fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+        fetchDataOrsendData("./Communication/Message.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -1185,7 +1185,7 @@ async function toggleMuteGroup(groupId, groupName, currentStatus) {
     
     if (confirmed) {
         console.log(`Toggling group ${groupName} (${groupId}) to ${newStatus}`);
-        fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+        fetchDataOrsendData("./Communication/Message.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -1315,7 +1315,7 @@ export async function toggleBanMember(groupId, memberId, memberName, currentStat
     const confirmed = RemindLibrary.customConfirm(`Are you sure you want to ${action} ${memberName}?${!isBanned ? ' This will remove them from the group and prevent them from rejoining.' : ''}`);
     
     if (confirmed) {
-        fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+        fetchDataOrsendData("./Communication/Message.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

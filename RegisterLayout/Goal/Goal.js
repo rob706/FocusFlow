@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // check for overdue goal
 
     function updateOverdueTasks() {
-        fetch("/RWD_assignment/FocusFlow/RegisterLayout/Goal/GoalBackend.php", {
+        fetch("./Goal/GoalBackend.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"

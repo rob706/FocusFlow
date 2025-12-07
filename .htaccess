@@ -1,16 +1,16 @@
 # Custom 404 error page
-ErrorDocument 404 /RWD_assignment/FocusFlow/404.php
+    ErrorDocument 404 /landing_page/404.php
 
 # Prevent direct access to the 404 page (optional)
-<Files "404.php">
-    # Only allow access when it's internally redirected from an actual 404 error
-    RewriteEngine On
-    RewriteCond %{ENV:REDIRECT_STATUS} !=404
-    RewriteRule ^ - [L,F]
-</Files>
+#<Files "404.php">
+#    # Only allow access when it's internally redirected from an actual 404 error
+#    RewriteEngine On
+#    RewriteCond %{ENV:REDIRECT_STATUS} !=404
+#    RewriteRule ^ - [L,F]
+#</Files>
 
 # Prevent directory listing
-Options -Indexes
+#Options -Indexes
 
 # Explicitly allow access to GoalReminder.php
 <Files "GoalReminder.php">
@@ -23,7 +23,7 @@ Options -Indexes
     RewriteEngine On
     
     # Use proper case in RewriteBase - this is CRITICAL
-    RewriteBase /RWD_assignment/FocusFlow/
+    RewriteBase /
     
     # First rule: Serve existing files and directories directly
     RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -42,6 +42,8 @@ Options -Indexes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ Landing_Page/404.php [L]
+
+    
 </IfModule>
 
 # Disable redirect rules that may cause conflicts

@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<?php
+    @include_once("../../config.php");
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/RWD_assignment/FocusFlow/RegisterLayout/loginandsignup.css">
+    <link rel="stylesheet" href="<?echo $webroot; ?>/RegisterLayout/loginandsignup.css">
     <title>Forgot Password</title>
 </head>
 <body>
@@ -15,28 +17,28 @@
                     <h3 class="slide-title">Focus on your task</h3>
                     <h2 class="slide-subtitle">Track your productivity seamlessly</h2>
                     <div class="image-placeholder">
-                        <img src="/RWD_assignment/FocusFlow/RegisterLayout/img/undraw_dev-productivity_5wps.svg" alt="Productivity">
+                        <img src="<?echo $webroot; ?>/RegisterLayout/img/undraw_dev-productivity_5wps.svg" alt="Productivity">
                     </div>
                 </div>
                 <div class="carousel-slide">
                     <h3 class="slide-title">Manage your time</h3>
                     <h2 class="slide-subtitle">Set goals and achieve them</h2>
                     <div class="image-placeholder">
-                        <img src="/RWD_assignment/FocusFlow/RegisterLayout/img/undraw_time-management_fedt.svg" alt="Time Management">
+                        <img src="<?echo $webroot; ?>/RegisterLayout/img/undraw_time-management_fedt.svg" alt="Time Management">
                     </div>
                 </div>
                 <div class="carousel-slide">
                     <h3 class="slide-title">Stay organized</h3>
                     <h2 class="slide-subtitle">Keep your workflow structured</h2>
                     <div class="image-placeholder">
-                        <img src="/RWD_assignment/FocusFlow/RegisterLayout/img/undraw_spreadsheet_g2tr.svg" alt="Organization">
+                        <img src="<?echo $webroot; ?>/RegisterLayout/img/undraw_spreadsheet_g2tr.svg" alt="Organization">
                     </div>
                 </div>
                 <div class="carousel-slide">
                     <h3 class="slide-title">Track Progress</h3>
                     <h2 class="slide-subtitle">Monitor your improvements</h2>
                     <div class="image-placeholder">
-                        <img src="/RWD_assignment/FocusFlow/RegisterLayout/img/undraw_progress-data_gvcq.svg" alt="Progress">
+                        <img src="<?echo $webroot; ?>/RegisterLayout/img/undraw_progress-data_gvcq.svg" alt="Progress">
                     </div>
                 </div>
             </div>

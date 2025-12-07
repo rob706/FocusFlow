@@ -3,6 +3,8 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+@include_once("../config.php");
+
 include 'conn.php';
 include 'AccountVerify.php';
 
@@ -42,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($suspension_end > time()) {
                     $_SESSION['suspended'] = true;
                     $_SESSION['suspension_end'] = $suspension_end;
-                    header("Location: /RWD_assignment/FocusFlow/AdminPage/AdminDashboard/suspensionpage.php");
+                    header("Location: ".$webroot."/AdminPage/AdminDashboard/suspensionpage.php");
                     exit();
                 }
             }
@@ -53,10 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Redirect based on user type
             switch ($_SESSION['usertype']) {
                 case 1: // Admin
-                    header("Location: /RWD_assignment/FocusFlow/AdminPage/AdminDashboard/AdminDashboard.php");
+                    header("Location: ".$webroot."/AdminPage/AdminDashboard/AdminDashboard.php");
                     break;
                 case 2: // Moderator
-                    header("Location: /RWD_assignment/FocusFlow/ModeratorPage/Dashboard/ModDashboard.php");
+                    header("Location: ".$webroot."/ModeratorPage/Dashboard/ModDashboard.php");
                     break;
                 case 0: // Regular user
                     header("Location: Homepage.php");

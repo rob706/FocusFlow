@@ -2,6 +2,9 @@
 include "conn.php";
 session_start();
 include "AccountVerify.php";
+
+@include_once("../config.php");
+
 requireAuthentication($_conn);
 
 ?>
@@ -37,7 +40,7 @@ requireAuthentication($_conn);
                 <div class="OVERLAY"></div>
                 <div class="POP_UP__CONTENT">
                     <h2>Create Task</h2>
-                    <form action="/RWD_assignment/FocusFlow/RegisterLayout/CalendarBackend.php" method="POST" id="popUpForm">
+                    <form action="<?php echo $webroot; ?>/RegisterLayout/CalendarBackend.php" method="POST" id="popUpForm">
                         <input type="hidden" name="action" value="Add">
 
                         <label class="INPUT__BOX" style="display: flex;">

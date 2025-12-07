@@ -1,7 +1,8 @@
 <?php
 include "../../RegisterLayout/conn.php";
 require_once 'admin_auth.php';
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_Assignment/FocusFlow/AdminPage/checklogin.php";
+@include_once("../../config.php");
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/AdminPage/checklogin.php";
 requireAdminAuth();
 ?>
 

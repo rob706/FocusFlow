@@ -2,7 +2,16 @@
 include "conn.php";
 session_start();
 include "AccountVerify.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_Assignment/FocusFlow/RegisterLayout/verifyUserType.php";
+
+@include_once("../config.php");
+
+/*
+
+Note (rob706): I do not know what the below file is, I cannot see this within the repo or in the history as being included... should this be checklogin.php
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/verifyUserType.php";
+
+*/
 
 requireAuthentication($_conn);
 ?>

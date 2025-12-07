@@ -1,7 +1,9 @@
 <?php
-include "conn.php";
 session_start();
+include "conn.php";
 include "AccountVerify.php";
+
+@include_once("../config.php");
 
 requireAuthentication($_conn);
 
@@ -81,7 +83,7 @@ requireAuthentication($_conn);
                         ?>
 
 
-                        <form action="/RWD_assignment/FocusFlow/RegisterLayout/Account/AccountUpdate.php" method="POST" class="PROFILE__DETAILS" onsubmit="return verifyPassword()">
+                        <form action="<?php echo $webroot ?>/RegisterLayout/Account/AccountUpdate.php" method="POST" class="PROFILE__DETAILS" onsubmit="return verifyPassword()">
 
                             <div>
                                 <p>Username :</p>
@@ -124,7 +126,7 @@ requireAuthentication($_conn);
                         </form>
                     </div>
                     <div class="PROFILE__LOGOUT">
-                        <a class="PROFILE__LOGOUT_B" href="/RWD_assignment/FocusFlow/RegisterLayout/Account/AccountLogOutBackend.php">Log Out</a>
+                        <a class="PROFILE__LOGOUT_B" href="<?php echo $webroot; ?>/RegisterLayout/Account/AccountLogOutBackend.php">Log Out</a>
                     </div>
                 </section>
 

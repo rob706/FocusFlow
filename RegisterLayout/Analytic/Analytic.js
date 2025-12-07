@@ -107,7 +107,7 @@ function fetchSuggestedTasks() {
                         let taskTitle = button.getAttribute("data-task");
                 
                 
-                        fetch("/RWD_Assignment/FocusFlow/RegisterLayout/AnalyticBackend.php", {
+                        fetch("./AnalyticBackend.php", {
                             method: "POST",
                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
                             body: `action=add&task_title=${encodeURIComponent(taskTitle)}&start_date=${startDate}&start_time=${startTime}&end_date=${endDateFormatted}&end_time=${endTimeFormatted}`

@@ -215,7 +215,7 @@ function CheckExistEmail(GroupData){
 	const overlay = document.getElementById('group-form-overlay');
 	const EmailErrorMessage = document.querySelector('.email-error');
 	const GroupMemberID = document.querySelector('.group-members');
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=CheckEmail&Email="+GroupData.members, {
+	fetchDataOrsendData("./Communication/Message.php?Type=CheckEmail&Email="+GroupData.members, {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
@@ -283,7 +283,7 @@ function validateEmail(email) {
 
 function ContinousUpdatePage(){
 	// First fetch updates group contacts
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupContactList", {
+	fetchDataOrsendData("./Communication/Message.php?Type=GetGroupContactList", {
 		method: 'GET',
 		headers: {
 			'Accept': 'application/json',
@@ -311,7 +311,7 @@ function ContinousUpdatePage(){
 	});
 
 	// Second fetch updates direct message contacts - fixed endpoint name
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetContactListForDM", {
+	fetchDataOrsendData("./Communication/Message.php?Type=GetContactListForDM", {
 		method: 'GET',
 		headers: {
 			'Accept': 'application/json',
@@ -389,7 +389,7 @@ function updateActiveConversation() {
     
     if (isGroupChat) {
         // Fetch latest group messages
-        fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfo&GroupID=${contactId}`, {
+        fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfo&GroupID=${contactId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -447,7 +447,7 @@ function updateActiveConversation() {
         });
     } else {
         // Fetch latest DM messages
-        fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactId}`, {
+        fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -543,7 +543,7 @@ function createGroup(GroupData) {
     GroupData.Type = 'createGroup';
 
 	// Send the group data to the server using POST method
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+	fetchDataOrsendData("./Communication/Message.php", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -899,7 +899,7 @@ async function renderMessagePage(MessagePageData){
 	if (isGroupChat) {
 		// For group chats, show member count instead of status
 		// First, fetch the current group member count
-		fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupMembers&GroupID=${ContactID}`, {
+		fetchDataOrsendData(`./Communication/Message.php?Type=GetGroupMembers&GroupID=${ContactID}`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -978,7 +978,7 @@ async function renderMessagePage(MessagePageData){
 
 	// Fetch user status for direct messages
 	if (!isGroupChat) {
-		fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetUserStatus&Contact_ID="+ContactID, {
+		fetchDataOrsendData("./Communication/Message.php?Type=GetUserStatus&Contact_ID="+ContactID, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -1217,7 +1217,7 @@ async function renderMessagePage(MessagePageData){
 
 function unblockUser(name, ContactID) {
 	// Send unblock request to server
-	fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php`, {
+	fetchDataOrsendData(`./Communication/Message.php`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -1303,7 +1303,7 @@ function unblockUser(name, ContactID) {
 
 			if (activeContact) {
 				// Trigger a re-render of the conversation
-				fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${ContactID}`, {
+				fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${ContactID}`, {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
@@ -1337,7 +1337,7 @@ function unblockUser(name, ContactID) {
 async function isUserBlocker(ContactID){
 	// console.log('Checking if user is a blocker for contact ID:', ContactID);
 	const response = await fetchDataOrsendData(
-		`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=CheckUserBlock&Contact_ID=${ContactID}`,
+		`./Communication/Message.php?Type=CheckUserBlock&Contact_ID=${ContactID}`,
 		{
 			method: "GET",
 			headers: {
@@ -1416,7 +1416,7 @@ function addEventListenerToMessage() {
             messagepanel.innerHTML = '<div class="loading-messages">Loading messages...</div>';
             
             // First fetch group info to get status and members
-            fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupInfo&GroupID=${contactItem.id}`, {
+            fetchDataOrsendData(`./Communication/Message.php?Type=GetGroupInfo&GroupID=${contactItem.id}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -1428,7 +1428,7 @@ function addEventListenerToMessage() {
                     const groupInfo = groupInfoResponse.message;
                     
                     // Now fetch the current user's role in this group
-                    fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetCurrentUserRole&GroupID=${contactItem.id}`, {
+                    fetchDataOrsendData(`./Communication/Message.php?Type=GetCurrentUserRole&GroupID=${contactItem.id}`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -1442,7 +1442,7 @@ function addEventListenerToMessage() {
                             : 'MEMBER';
                         
                         // Then fetch messages
-                        fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfo&GroupID=${contactItem.id}`, {
+                        fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfo&GroupID=${contactItem.id}`, {
                             method: "GET",
                             headers: {
                                 "Content-Type": "application/json",
@@ -1521,7 +1521,7 @@ function addEventListenerToMessage() {
             messagepanel.innerHTML = '<div class="loading-messages">Loading messages...</div>';
             
             // First check if the current user is blocked by this contact
-            fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=CheckIfBlockedBy&ContactID=${contactItem.id}`, {
+            fetchDataOrsendData(`./Communication/Message.php?Type=CheckIfBlockedBy&ContactID=${contactItem.id}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -1537,7 +1537,7 @@ function addEventListenerToMessage() {
                 }
                 
                 // Continue with normal flow if not blocked
-                fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactItem.id}`, {
+                fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactItem.id}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -1589,7 +1589,7 @@ function addEventListenerToMessage() {
             .catch(error => {
                 console.error('Block check error:', error);
                 // Continue with normal message loading on error
-                fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactItem.id}`, {
+                fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactItem.id}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -1654,7 +1654,7 @@ async function renderBlockedByMessageUI(username, contactID) {
     const messagepanel = document.querySelector('.messages-panel');
     if (!messagepanel) return;
     // First fetch previous messages so we can still display them
-    fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactID}`, {
+    fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactID}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -1952,7 +1952,7 @@ function setupSendButton() {
 			const groupId = activeItem.id;
 			
 			// Get group status before sending message
-			fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupInfo&GroupID=${groupId}`, {
+			fetchDataOrsendData(`./Communication/Message.php?Type=GetGroupInfo&GroupID=${groupId}`, {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json",
@@ -2022,7 +2022,7 @@ function sendUserMessageToServer(messageData) {
 	// Add Type to the messageData object instead of in the URL
 	messageData.Type = 'sendUserMessageToServer';
 	
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+	fetchDataOrsendData("./Communication/Message.php", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -2072,7 +2072,7 @@ function sendGroupMessageToServer(messageData) {
     messageData.Type = 'sendMessageToServer';
 	console.log('Sending group message:', messageData);
 
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+    fetchDataOrsendData("./Communication/Message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -2306,7 +2306,7 @@ function renderDirectMessageContact(contactData) {
 		const messagepanel = document.querySelector('.messages-panel');
 		messagepanel.innerHTML = '<div class="loading-messages">Loading messages...</div>';
 		// debug
-        fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactData.ContactID}`, {
+        fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfoForDM&Contact_ID=${contactData.ContactID}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -2393,7 +2393,7 @@ function suggestionsForContact(){
 			return;
 		}
 
-		fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetSuggestions&Email=${email}`, {
+		fetchDataOrsendData(`./Communication/Message.php?Type=GetSuggestions&Email=${email}`, {
 			method: 'GET',
 			headers: {
 				'Accept': 'application/json',
@@ -2447,7 +2447,7 @@ function suggestionListClickable(suggestedEmail){
 }
 
 function VerifyDMContactListExist(){	
-	fetchDataOrsendData ("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=VerifyDMContactListExist", {
+	fetchDataOrsendData ("./Communication/Message.php?Type=VerifyDMContactListExist", {
 		method: 'GET',
 		headers: {
 			'Accept': 'application/json',
@@ -2473,7 +2473,7 @@ function VerifyDMContactListExist(){
 }
 
 function CreateDMContactListForUser(){
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+	fetchDataOrsendData("./Communication/Message.php", {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -2530,7 +2530,7 @@ function AddContact(recipientEmail, overlay){
 }
 
 function checkIfFriendInFriendContactList(recipientEmail, overlay, ErrorElement, errorMessage, suggestions){
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+	fetchDataOrsendData("./Communication/Message.php", {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -2580,7 +2580,7 @@ function checkIfFriendInFriendContactList(recipientEmail, overlay, ErrorElement,
 
 function sendAddContact(recipientEmail, overlay){
 	console.log('Adding contact:', recipientEmail.value.trim());
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+	fetchDataOrsendData("./Communication/Message.php", {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -2631,7 +2631,7 @@ function sendAddContact(recipientEmail, overlay){
 
 // function GetDMContactList(recipientEmail){
 // 	console.log('Get DM Contact List:', recipientEmail.value.trim());
-// 	fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetOnlyOneContactListForDM&Email=${recipientEmail.value.trim()}`, {
+// 	fetchDataOrsendData(`./Communication/Message.php?Type=GetOnlyOneContactListForDM&Email=${recipientEmail.value.trim()}`, {
 // 		method: 'GET',
 // 		headers: {
 // 			'Accept': 'application/json',
@@ -2772,7 +2772,7 @@ function appendContactToContactList(contactData) {
 }
 
 function fetchGroupContactListFromServer(){
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetGroupContactList", {
+    fetchDataOrsendData("./Communication/Message.php?Type=GetGroupContactList", {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -2818,7 +2818,7 @@ function fetchGroupContactListFromServer(){
 
 // Also apply sorting to the DM contact list for consistency
 function renderDMContactList(){
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetContactListForDM", {
+    fetchDataOrsendData("./Communication/Message.php?Type=GetContactListForDM", {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -2978,7 +2978,7 @@ async function CheckIfStatusisFriend(){
 		return false;
 	}
 
-	const response = await fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+	const response = await fetchDataOrsendData("./Communication/Message.php", {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -3013,7 +3013,7 @@ async function CheckIfStatusisFriend(){
 function SendFriendRequest(messageData){
 	messageData.Type = 'SendFriendRequest';
 	console.log('Sending friend request:', messageData);
-	fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+	fetchDataOrsendData("./Communication/Message.php", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -3046,7 +3046,7 @@ function checkIfFriends(userId) {
 }
 
 function blockUser(username, ContactID) {
-    fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+    fetchDataOrsendData("./Communication/Message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -3298,7 +3298,7 @@ async function leaveGroup(groupName, groupId) {
             groupItem.style.opacity = '0.5';
         }
         
-        fetchDataOrsendData("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php", {
+        fetchDataOrsendData("./Communication/Message.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -3482,7 +3482,7 @@ function renderGroupContact(contactData) {
         messagepanel.innerHTML = '<div class="loading-messages">Loading messages...</div>';
         
         // Fetch and render group messages
-        fetchDataOrsendData(`/RWD_assignment/FocusFlow/RegisterLayout/Communication/Message.php?Type=GetMessageInfo&GroupID=${contactData.ContactID}`, {
+        fetchDataOrsendData(`./Communication/Message.php?Type=GetMessageInfo&GroupID=${contactData.ContactID}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

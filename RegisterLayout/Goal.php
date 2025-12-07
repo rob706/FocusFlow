@@ -6,6 +6,9 @@ include "conn.php";
 
 include "AccountVerify.php";
 requireAuthentication($_conn);
+
+@include_once("../config.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +57,7 @@ requireAuthentication($_conn);
             </div>
             <div class="GOAL__INPUT" style="display: none;">
                 <h4>Set your goal</h4>
-                <form action="/RWD_assignment/FocusFlow/RegisterLayout/Goal/GoalBackend.php" method="POST" class="GOAL__FORM">
+                <form action="<?php echo $webroot; ?>/RegisterLayout/Goal/GoalBackend.php" method="POST" class="GOAL__FORM">
                     <input type="hidden" name="action" value="Add">
 
                     <label class="INPUT__BOX">
@@ -189,7 +192,7 @@ requireAuthentication($_conn);
                 ?>
             </div>
             <div id="removalForm" style="display: none;">
-                <form action="/RWD_assignment/FocusFlow/RegisterLayout/Goal/GoalBackend.php" id="goalUpdateForm" method="POST">
+                <form action="<?php echo $webroot; ?>/RegisterLayout/Goal/GoalBackend.php" id="goalUpdateForm" method="POST">
                     <h3>Enter Goal ID to remove</h3>
                     <label>Goal ID:</label>
                     <input type="hidden" name="action" value="Remove">

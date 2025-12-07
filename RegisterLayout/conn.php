@@ -3,7 +3,9 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$db = 'assignment';
+$db = 'focusflow';
+
+#$db = 'assignment';
     
 try {
     $_conn = mysqli_connect($host,$username,$password,$db);

@@ -19,7 +19,7 @@ function sendMSG(event) {
 
 
     // Send the data using Fetch API
-    fetch("/RWD_assignment/FocusFlow/RegisterLayout/Communication/Community/CommunityDMPageSendMsg.php", {
+    fetch("./Communication/Community/CommunityDMPageSendMsg.php", {
         method: "POST",
         body: formData
     })

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+@include_once("../../config.php");
+
 function requireAdminAuth() {
     // Debug statement to check session values
     error_log("Auth Check - UserID: " . (isset($_SESSION['userID']) ? $_SESSION['userID'] : 'not set') . 
@@ -20,7 +22,7 @@ function requireAdminAuth() {
             return true;
         }
         
-        header("Location: /RWD_assignment/FocusFlow/RegisterLayout/Login.php");
+        header("Location: ".$webroot."/RegisterLayout/Login.php");
         exit();
     }
 
@@ -28,7 +30,7 @@ function requireAdminAuth() {
     $usertype = (int)$_SESSION['usertype'];
     
     if ($usertype !== 1) {
-        header("Location: /RWD_assignment/FocusFlow/RegisterLayout/Login.php");
+        header("Location: ".$webroot."/RegisterLayout/Login.php");
         exit();
     }
 

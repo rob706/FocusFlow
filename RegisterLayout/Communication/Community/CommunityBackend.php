@@ -1,5 +1,8 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/RWD_assignment/FocusFlow/RegisterLayout/conn.php";
+
+@include_once("../../config.php");
+
+include $_SERVER['DOCUMENT_ROOT'] . "".$webroot."/RegisterLayout/conn.php";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $action = isset($_POST['action']) ? $_POST['action'] : '';
