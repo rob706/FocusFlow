@@ -3,7 +3,7 @@
             <button class="HEADER__MENU_BUTTON">
                 <div class="HEADER__MENU_ICON"></div>
             </button>
-            <a href="Homepage.php">
+            <a href="./">
                 <h1 class="HEADER__TITLE">F<span class="material-symbols-outlined HEADER__ICON">
                         schedule
                     </span>cusFlow

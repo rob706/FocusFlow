@@ -1,6 +1,6 @@
 <?php
 
-@include_once("../config.php");
+@include_once($_SERVER['DOCUMENT_ROOT']."/core/config.php");
 
 if (!isset($_COOKIE['UID'])) {
     $cookiesToClear = ['AUTH_TOKEN', 'EMAIL', 'PHPSESSID', 'UID', 'USERNAME', 'USERTYPE'];

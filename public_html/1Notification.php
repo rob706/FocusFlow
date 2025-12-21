@@ -1,5 +1,5 @@
 <?php
-include 'conn.php'; 
+@include_once($_SERVER['DOCUMENT_ROOT']."/core/config.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userID = $_COOKIE['UID'];

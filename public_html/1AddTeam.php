@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+@include_once($_SERVER['DOCUMENT_ROOT']."/core/config.php");
 
 if ($_conn->connect_error) {
     die("Connection failed: " . $_conn->connect_error);

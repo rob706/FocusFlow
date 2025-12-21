@@ -2,7 +2,7 @@
     <nav class="SIDEBAR__NAV">
         <ul>
             <li>
-                <a href="Homepage.php" class="SIDEBAR__ITEM">
+                <a href="./" class="SIDEBAR__ITEM">
                     <span class="material-icons">home</span>Dashboard
                 </a>
             </li>
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li>
-                <a href="Calendar.php" class="SIDEBAR__ITEM">
+                <a href="./calendar.htm" class="SIDEBAR__ITEM">
                     <span class="material-icons">event</span>Calendar
                 </a>
             </li>

@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+@include_once($_SERVER['DOCUMENT_ROOT']."/core/config.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? "";
@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             foreach ($required_fields as $field) {
                 if (empty($_POST[$field])) {
-                    die("<script>alert('$_POST[$field], $field is Empty...');window.location.href='Calendar.php'</script>");
+                    die("<script>alert('$_POST[$field], $field is Empty...');window.location.href='Calendar.htm'</script>");
                 }
             }
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->close();
             $_conn->close();
 
-            die("<script>alert('$message');window.location.href='Calendar.php'</script>");
+            die("<script>alert('$message');window.location.href='Calendar.htm'</script>");
 
             break;
         case "Update":
