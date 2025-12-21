@@ -1,46 +1,10 @@
-<?php
-include "conn.php";
-session_start();
-include "AccountVerify.php";
-
-@include_once("../config.php");
-
-requireAuthentication($_conn);
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar </title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" href="img\SMALL_CLOCK_ICON.ico">
-    <link rel="stylesheet" href="Registered.css">
-    <link rel="stylesheet" href="Responsive.css">
-</head>
-
-<body>
-    <?php
-    include "header.php";
-    ?>
-    <main class="CALENDAR__MAIN">
-        <?php
-        include "sidebar.php";
-        ?>
-
-
-        <!-- Calendar Content -->
+<!-- Calendar Content -->
         <article class="CONTAINER">
             <div class="POP_UP">
                 <div class="OVERLAY"></div>
                 <div class="POP_UP__CONTENT">
                     <h2>Create Task</h2>
-                    <form action="<?php echo $webroot; ?>/RegisterLayout/CalendarBackend.php" method="POST" id="popUpForm">
+                    <form action="<?php echo $webroot; ?>CalendarBackend.php" method="POST" id="popUpForm">
                         <input type="hidden" name="action" value="Add">
 
                         <label class="INPUT__BOX" style="display: flex;">
@@ -93,7 +57,7 @@ requireAuthentication($_conn);
                 </div>
             </div>
             <?php
-            include 'conn.php';
+            @include_once($_SERVER['DOCUMENT_ROOT']."/core/config.php");
 
             if (!$_conn) {
                 die("Connection failed: " . mysqli_connect_error());
@@ -226,9 +190,5 @@ requireAuthentication($_conn);
             </section>
         </article>
 
-    </main>
-    <script src="Registered.js" defer></script>
-    <script src="Calender/Calendar.js" defer></script>
-</body>
-
-</html>
+        <script src="core/js/Registered.js" defer></script>
+        <script src="core/js/Calendar.js" defer></script>
