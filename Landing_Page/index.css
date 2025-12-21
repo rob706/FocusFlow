@@ -8,57 +8,6 @@ TABLET: 760
 MOBILE: 468
 */
 
-/* ==========RESET========== */
-*,
-* ::before,
-* ::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    scroll-margin-top: 100px;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-li {
-    list-style-type: none;
-}
-
-a,
-a:visited {
-    font-family: var(--FF-BODY);
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--LINK);
-}
-
-a:is(:hover, :focus, :active) {
-    color: var(--LINK-HOVER);
-}
-
-html {
-    position: relative;
-}
-
-body {
-    overflow-x: hidden;
-}
-
-header,
-footer {
-    font-family: var(--FF-HEADINGS);
-}
-
-main {
-    font-family: var(--FF-BODY);
-}
-
-
-
 /*========== VARIABLE========== */
 :root {
     /* FONTS */
@@ -119,6 +68,54 @@ main {
     --SHADOW-WHITEBG: 8px 8px 15px hsla(0, 0%, 0%, 0.3);
 }
 
+/* ==========RESET========== */
+*,
+* ::before,
+* ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-margin-top: 100px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+a,
+a:visited {
+    font-family: var(--FF-BODY);
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--LINK);
+}
+
+a:is(:hover, :focus, :active) {
+    color: var(--LINK-HOVER);
+}
+
+html {
+    position: relative;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+header,
+footer {
+    font-family: var(--FF-HEADINGS);
+}
+
+main {
+    font-family: var(--FF-BODY);
+}
 
 /* ==========UTILITY========== */
 
@@ -495,23 +492,6 @@ header {
     pointer-events: auto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* TODO: Homepage.php */
 /* ===============WELCOME SECTION================ */
 
@@ -810,17 +790,6 @@ header {
     color: var(--COLOR-BLUE2);
     transform: scale(1.1);
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* TODO: Plans Page */
 /* =============PLANS PAGE================ */
@@ -1231,37 +1200,6 @@ header {
     display: block;
     margin: 0 auto;
 }
-
-/* RESPONSIVE */
-/* BREAKPOINT!!! AT width 900px */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* RESPONSIVE */
 /* BREAKPOINT!!! AT width 900px */

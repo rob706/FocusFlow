@@ -1,0 +1,591 @@
+header {
+    position: relative;
+    /* Change from fixed/sticky to relative */
+    width: 100%;
+    z-index: 100;
+}
+
+.dashboard {
+    padding: 2rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background: #f7f7f7;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.metric-card__value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.metric-card__label {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.week-badge {
+    background: white;
+    color: #333;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    border: 1px solid #e5e7eb;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+
+    background: white;
+    border-radius: 8px;
+    /* padding: 1.5rem; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.calendar-nav button {
+    background: #4a5568;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.calendar-day-label {
+    font-weight: 500;
+    color: #4a5568;
+    padding: 0.5rem;
+}
+
+.calendar-date {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.calendar-date:hover {
+    background: #f3f4f6;
+}
+
+.calendar-date.current {
+    background: #4a5568;
+    color: white;
+}
+
+.group-tasks-container {
+    margin-top: 2rem;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.group-tasks-title {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.group-tasks-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.group-tasks-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.group-tasks-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.group-tasks-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.task-card {
+    background: #4a5568;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-card__heading {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.task-card__subheading {
+    font-size: 0.875rem;
+    color: #cbd5e1;
+}
+
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.task-card__avatars {
+    display: flex;
+}
+
+.task-card__avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    margin-left: -8px;
+    border: 2px solid #4a5568;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #4a5568;
+    font-size: 0.875rem;
+}
+
+.task-card__status {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.task-card__status.completed {
+    background: #10B981;
+    color: white;
+}
+
+.task-card__status:hover {
+    transform: scale(1.1);
+}
+
+header .icons {
+    display: flex;
+}
+
+header .icons span {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+
+.icons span:last-child {
+    margin-right: -10px;
+}
+
+header .icons span:hover {
+    background: #f2f2f2;
+}
+
+header .current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+.calendar-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.calendar-container .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.calendar-header .current-date {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.calendar-header .icons {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.calendar .weeks,
+.calendar .days {
+    display: contents;
+}
+
+.weeks li,
+.days li {
+    list-style-type: none;
+    text-align: center;
+    padding: 5px;
+    font-size: 1em;
+}
+
+.days li {
+    cursor: pointer;
+}
+
+.days li:hover {
+    background-color: #ececec;
+}
+
+.days .today {
+    background-color: #ffeb3b;
+}
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1rem;
+}
+
+.days li.has-task {
+    background-color: #ffeb3b;
+    border-radius: 50%;
+}
+
+.days li.has-task:hover {
+    background-color: #ffd700;
+}
+
+.days li.overdue {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.days li.overdue:hover {
+    background-color: #ff1a1a;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#taskList li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#viewCalendarButton {
+    background-color: #4a5568;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#viewCalendarButton:hover {
+    background-color: #3b4a5a;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .dashboard {
+        padding: 1.5rem 2rem;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .dashboard {
+        grid-template-columns: 1fr 250px;
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+    }
+    
+    .metrics-grid {
+        gap: 0.75rem;
+    }
+    
+    .metric-card {
+        padding: 1.2rem;
+    }
+    
+    .metric-card__value {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 1.5rem;
+    }
+    
+    .sidebar {
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    .calendar-container {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .task-card {
+        padding: 0.8rem;
+    }
+    
+    /* Improved calendar responsiveness */
+    .wrapper {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .calendar .weeks li, 
+    .calendar .days li {
+        font-size: 0.9rem;
+        padding: 4px;
+    }
+    
+    /* Improved modal responsiveness */
+    .modal-content {
+        margin: 10% auto;
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .dashboard {
+        padding: 1rem;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+    
+    .metric-card__value {
+        font-size: 1.5rem;
+    }
+    
+    .metric-card__label {
+        font-size: 0.8rem;
+    }
+    
+    .chart-container {
+        margin-bottom: 1.5rem;
+        padding: 0.8rem;
+    }
+    
+    .group-tasks-container {
+        padding: 0.75rem;
+    }
+    
+    .task-meta {
+        gap: 0.5rem;
+    }
+    
+    .task-card__heading {
+        font-size: 0.9rem;
+    }
+    
+    .task-card__subheading {
+        font-size: 0.75rem;
+    }
+    
+    .task-card__avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
+    }
+    
+    .calendar .weeks li, 
+    .calendar .days li {
+        font-size: 0.75rem;
+        padding: 3px;
+    }
+    
+    .calendar-header .current-date {
+        font-size: 1rem;
+    }
+    
+    .group-tasks-title {
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        padding: 10px;
+    }
+    
+    #viewCalendarButton {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Additional styles for very small screens */
+@media screen and (max-width: 400px) {
+    .metric-card__value {
+        font-size: 1.3rem;
+    }
+    
+    .metric-card {
+        padding: 0.8rem;
+    }
+    
+    .week-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+    
+    .task-card {
+        padding: 0.7rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .task-meta {
+        width: 100%;
+        margin-top: 0.5rem;
+        justify-content: space-between;
+    }
+    
+    .calendar .weeks,
+    .calendar .days {
+        gap: 2px;
+    }
+    
+    .wrapper header {
+        padding: 0 0.5rem;
+    }
+    
+    header .icons span {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        font-size: 1.5rem;
+    }
+    
+    .calendar-header .current-date {
+        font-size: 0.9rem;
+    }
+}
